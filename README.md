@@ -1,10 +1,19 @@
-# Detector de golpes em mensagens com SmolLM2
+<div align="center">
+          
+ # Detector de golpes em mensagens com SmolLM2
 
-**CP2/CP3 · Generative AI for Engineering · FIAP 4ESPV · Prof. Dr. Francisco Elânio**
+ **CP2/CP3 · Generative AI for Engineering · FIAP 4ESPV**
+</div>
+
+
+<div align="justify">
 
 Treinamos uma LLM pequena, rodando localmente em GPU, para ler uma mensagem (SMS, WhatsApp ou e-mail) e responder **`golpe`** ou **`seguro`**. O modelo base, o SmolLM2-360M-Instruct, acerta 68% das mensagens sem treino. Depois de um fine-tuning com LoRA de 20 segundos numa RTX 4070, o melhor modelo chega a **100% no teste** e **90% num conjunto de mensagens escritas à mão** que não seguem os modelos do treino.
+</div>
 
-## Integrantes
+<div align="center">
+          
+## Integrantes do Grupo
 
 | Nome | RM |
 |---|---|
@@ -12,6 +21,7 @@ Treinamos uma LLM pequena, rodando localmente em GPU, para ler uma mensagem (SMS
 | Henrique Pontes Oliveira | RM98036 |
 | Pedro Henrique Palladino | RM551180 |
 | Raí Gumieri dos Santos | RM98287 |
+
 
 ## Onde está cada item do enunciado
 
@@ -27,6 +37,7 @@ Treinamos uma LLM pequena, rodando localmente em GPU, para ler uma mensagem (SMS
 | 8 | Documentação e código no GitHub | Este repositório |
 
 ## 1. Modelo escolhido
+</div>
 
 **[SmolLM2-360M-Instruct](https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct)** (Hugging Face, 362 milhões de parâmetros), a mesma família usada nas aulas.
 
@@ -34,7 +45,10 @@ Treinamos uma LLM pequena, rodando localmente em GPU, para ler uma mensagem (SMS
 - **É a versão Instruct**, que já entende o formato de conversa (sistema, usuário, assistente) e responde de forma curta.
 - **Comparamos com o SmolLM2-135M-Instruct** para medir o efeito do tamanho do modelo. O 1.7B não entrou nos testes porque o 360M já resolve bem a tarefa.
 
+<div align="center">
+          
 ## 2. O problema
+</div>
 
 Golpes por mensagem (falso banco, taxa de entrega, "troquei de número", vaga falsa, pedido de código) são comuns no Brasil. A tarefa do modelo é classificar uma mensagem em **uma palavra**:
 
@@ -47,6 +61,8 @@ Modelo  : golpe
 
 A resposta curta permite corrigir automaticamente cada resposta, como o pass@1 da aula 7.
 
+<div align="center">
+          
 ## 3. Ambiente e GPU (itens 5 e 7)
 
 | Componente | Versão |
@@ -56,28 +72,37 @@ A resposta curta permite corrigir automaticamente cada resposta, como o pass@1 d
 | PyTorch | 2.11.0+cu128 |
 | Precisão | bfloat16 (suportado pela placa) |
 | Sistema | Windows, VSCode, Python em ambiente virtual (`.venv`) |
+</div>
 
 Não foi preciso instalar o CUDA Toolkit separado: o pacote do PyTorch `cu128` já traz o runtime CUDA, compatível com o driver da placa.
 
-**VSCode durante o treino, com a extensão de monitoramento da GPU:**
-
-![VSCode com a GPU em uso](docs/print_vscode_treino.png)
-
 **Driver reconhecendo a placa (`nvidia-smi`):**
+
+<div align="center">
 
 ![nvidia-smi](docs/print_nvidia_smi.png)
 
+</div>
+
 **Teste de ambiente (`00_smoke_test.py`) no terminal do VSCode, com uma multiplicação de matrizes real na GPU:**
 
+<div align="center">
+          
 ![smoke test](docs/print_smoke_test.png)
 
-**Extensão de monitoramento da GPU com a placa em uso (98% de utilização):**
+</div>
 
+**Extensão de monitoramento da GPU na barra de status do VSCode, durante o treino (98% de utilização e 11,2 GB de VRAM ocupados):**
+
+<div align="center">
+          
 ![monitor de GPU](docs/print_gpu_monitor.png)
 
 ## 4. Dataset
 
-Mensagens geradas por código (`01_dados.py`), na mesma lógica da aula 7: cada **família** é um tipo de mensagem, e modelos de frase combinados com listas de valores geram as variações. Empresas, links, telefones e chaves Pix são **fictícios**.
+</div>
+
+Mensagens geradas por código (`01_dados.py`): Cada **família** é um tipo de mensagem, e modelos de frase combinados com listas de valores geram as variações. Empresas, links, telefones e chaves Pix são **fictícios**.
 
 | Rótulo | Famílias no treino |
 |---|---|
@@ -94,17 +119,25 @@ Várias mensagens seguras citam banco, Pix, valores e códigos **de propósito**
 
 O script confere que nenhuma mensagem do teste aparece no treino.
 
+<div align="center">
+          
 ## 5. Como treinamos
 
 `03_treinar.py`, com o laço da aula: **forward → loss → backward → step**.
 
+</div>
+
 - **LoRA** nas camadas de atenção e MLP (`q, k, v, o, gate, up, down`). No `lora_padrao` (rank 16) são 8,7 milhões de parâmetros treináveis, 2,34% do total.
-- **A loss só cobra a resposta.** Os tokens do sistema e da mensagem recebem rótulo `-100` e são ignorados, como na aula 7 ("enunciado ignorado, código cobrado").
+- **A loss só cobra a resposta.** Os tokens do sistema e da mensagem recebem rótulo `-100` e são ignorados.
 - **Pesos em float32 com cálculo em bfloat16** (autocast): as atualizações pequenas do LoRA não se perdem por falta de precisão, e a conta continua rápida na GPU.
 - **Otimizador AdamW**, warmup de 5% e decaimento linear do learning rate, seed fixa (42).
 - **Configuração de referência (`lora_padrao`):** 3 épocas, learning rate 2e-4, rank 16, alpha 32, lote 16, 87 passos.
 
+<div align="center">
+          
 ## 6. Como avaliamos
+
+</div>
 
 `02_avaliar.py` aplica a **mesma prova** a qualquer modelo (antes ou depois do treino), com temperature 0 (resposta determinística):
 
@@ -115,7 +148,11 @@ O script confere que nenhuma mensagem do teste aparece no treino.
 
 Cada avaliação é salva em `resultados/<nome>.json`, com todas as respostas do modelo e as informações da GPU.
 
+<div align="center">
+          
 ## 7. Experimentos (item 3)
+
+</div>
 
 `04_experimentos.py` treina e avalia 14 configurações, mudando **um parâmetro por vez** em relação ao `lora_padrao`. `05_comparar.py` gera a tabela completa ([`resultados/tabela.md`](resultados/tabela.md)) e o gráfico.
 
@@ -149,25 +186,41 @@ Cada avaliação é salva em `resultados/<nome>.json`, com todas as respostas do
 
 ### Teste x desafio
 
-Os modelos treinados chegam a 99–100% no teste, mas ficam entre 72,5% e 90% no desafio. O teste vem dos mesmos geradores de frases do treino, então mede principalmente se o modelo aprendeu aqueles padrões. O desafio mostra o que acontece com mensagens escritas de outro jeito, e é a medida mais honesta do detector. É a mesma lição da aula 7: longe dos dados, o modelo erra mais.
+Os modelos treinados chegam a 99–100% no teste, mas ficam entre 72,5% e 90% no desafio. O teste vem dos mesmos geradores de frases do treino, então mede principalmente se o modelo aprendeu aqueles padrões. O desafio mostra o que acontece com mensagens escritas de outro jeito, e é a medida mais honesta do detector.
 
+<div align="center">
+          
 ## 8. Modelo final: `lora_r64`
+
+</div>
 
 Escolhemos o `lora_r64` (3 épocas, LR 2e-4, rank 64, alpha 128): 100% no teste, 90% no desafio, recall de golpe de 95% e precisão de 86,4% no desafio.
 
 ![Curva de loss do lora_r64](runs/lora_r64/loss.png)
 
+<div align="center">
+          
 A loss de validação cai junto com a de treino, sem sinal de overfitting nas 3 épocas.
-
+          
 ## 9. Frontend (item 6)
 
+</div>
+
+<div align="justify">
+          
 `06_app.py` abre uma página em Gradio (`http://127.0.0.1:7860`). O usuário cola uma mensagem e vê, **lado a lado, a resposta do modelo sem treino e do modelo treinado**, com o tempo de resposta na GPU (cerca de 200 ms). Na própria tela dá para trocar o modelo treinado e a temperature.
+
+</div>
 
 ![Frontend](docs/print_frontend.png)
 
 No exemplo acima, o modelo sem treino classifica um código de verificação legítimo como golpe; o treinado acerta.
 
+<div align="center">
+          
 ## 10. Como reproduzir
+
+</div>
 
 Pré-requisitos: GPU NVIDIA, Python 3.10 ou mais novo.
 
@@ -198,10 +251,17 @@ python 05_comparar.py
 # 6. Frontend
 python 06_app.py
 ```
-
+<div align="justify">
+          
 Os pesos treinados (`runs/*/adaptador/`) não estão no repositório porque o `lora_r64` passa do limite de 100 MB do GitHub. Cada adaptador é recriado em cerca de 20 segundos com o `03_treinar.py`. O histórico de cada treino (`treino.json`) e a curva de loss (`loss.png`) estão versionados.
 
+</div>
+
+<div align="center">
+          
 ## 11. Estrutura do repositório
+
+</div>
 
 ```
 ├── 00_smoke_test.py      teste do ambiente: PyTorch, CUDA e cálculo na GPU
@@ -220,7 +280,11 @@ Os pesos treinados (`runs/*/adaptador/`) não estão no repositório porque o `l
 └── docs/                 prints da GPU e do frontend
 ```
 
+<div align="center">
+          
 ## 12. Limitações
+
+</div>
 
 - **Dados sintéticos.** O treino vem de modelos de frase; mensagens reais são mais variadas. O desafio mostra essa diferença (até 90%, contra 100% no teste).
 - **Amostras pequenas.** O desafio tem 40 mensagens, então cada uma vale 2,5 pontos, e cada experimento rodou uma única vez. Diferenças de 1 a 3 mensagens entre experimentos (por exemplo `lora_r64` 90% contra `lora_lr1e-3` 87,5%) não são conclusivas.
@@ -228,10 +292,3 @@ Os pesos treinados (`runs/*/adaptador/`) não estão no repositório porque o `l
 - **Duas classes apenas.** Mensagens ambíguas (uma cobrança real com link, por exemplo) não têm uma resposta "talvez".
 - Projeto acadêmico: o detector erra e não deve ser a única forma de verificar uma mensagem real.
 
-## Referências
-
-- ALLAL, L. B. et al. *SmolLM2: When Smol Goes Big — Data-Centric Training of a Small Language Model*. arXiv:2502.02737, 2025.
-- HU, E. J. et al. *LoRA: Low-Rank Adaptation of Large Language Models*. ICLR, 2022.
-- HUGGING FACE. Documentação oficial de Transformers e PEFT. huggingface.co/docs
-- PYTORCH. *Get Started Locally*. pytorch.org/get-started/locally
-- Material das aulas 6 e 7 de Generative AI for Engineering, Prof. Dr. Francisco Elânio, FIAP.
