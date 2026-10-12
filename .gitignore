@@ -1,0 +1,11 @@
+# ambiente
+.venv/
+__pycache__/
+*.pyc
+.gradio/
+
+# pesos treinados (o lora_r64 passa de 100 MB, limite do GitHub).
+# Cada adaptador e recriado em ~20 s com o 03_treinar.py.
+runs/*/adaptador/
+*.safetensors
+*.bin

@@ -1,0 +1,7 @@
+# Instale o PyTorch com CUDA ANTES, pelo indice da NVIDIA (ver README):
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+# Nao coloque "torch" aqui: o pip trocaria pela versao de CPU.
+transformers
+peft
+matplotlib
+gradio

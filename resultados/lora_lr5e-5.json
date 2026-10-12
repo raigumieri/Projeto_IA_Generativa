@@ -1,0 +1,1155 @@
+{
+  "nome": "lora_lr5e-5",
+  "modelo": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "adaptador": "runs/lora_lr5e-5/adaptador",
+  "temperature": 0.0,
+  "ambiente": {
+    "pytorch": "2.11.0+cu128",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "gpu": "NVIDIA GeForce RTX 4070",
+    "vram_total_gb": 12.0
+  },
+  "segundos": 2.9,
+  "pico_vram_mb": 874,
+  "resumo": {
+    "geral": {
+      "acertos": 115,
+      "total": 125,
+      "pct": 92.0
+    },
+    "por_tipo": {
+      "inedita": {
+        "acertos": 40,
+        "total": 40,
+        "pct": 100.0
+      },
+      "variacao": {
+        "acertos": 75,
+        "total": 85,
+        "pct": 88.2
+      }
+    },
+    "por_familia": {
+      "aviso_de_banco_legitimo": {
+        "acertos": 4,
+        "total": 5,
+        "pct": 80.0
+      },
+      "aviso_de_condominio": {
+        "acertos": 10,
+        "total": 10,
+        "pct": 100.0
+      },
+      "codigo_legitimo": {
+        "acertos": 5,
+        "total": 5,
+        "pct": 100.0
+      },
+      "conta_de_servico": {
+        "acertos": 4,
+        "total": 5,
+        "pct": 80.0
+      },
+      "conversa_pessoal": {
+        "acertos": 5,
+        "total": 5,
+        "pct": 100.0
+      },
+      "divida_falsa": {
+        "acertos": 3,
+        "total": 5,
+        "pct": 60.0
+      },
+      "entrega_legitima": {
+        "acertos": 5,
+        "total": 5,
+        "pct": 100.0
+      },
+      "falso_banco": {
+        "acertos": 5,
+        "total": 5,
+        "pct": 100.0
+      },
+      "falso_parente": {
+        "acertos": 5,
+        "total": 5,
+        "pct": 100.0
+      },
+      "investimento_milagroso": {
+        "acertos": 5,
+        "total": 5,
+        "pct": 100.0
+      },
+      "lembrete_consulta": {
+        "acertos": 5,
+        "total": 5,
+        "pct": 100.0
+      },
+      "multa_de_transito_falsa": {
+        "acertos": 10,
+        "total": 10,
+        "pct": 100.0
+      },
+      "pedido_de_codigo": {
+        "acertos": 4,
+        "total": 5,
+        "pct": 80.0
+      },
+      "pix_entre_conhecidos": {
+        "acertos": 2,
+        "total": 5,
+        "pct": 40.0
+      },
+      "premio_falso": {
+        "acertos": 5,
+        "total": 5,
+        "pct": 100.0
+      },
+      "promocao_legitima": {
+        "acertos": 5,
+        "total": 5,
+        "pct": 100.0
+      },
+      "recadastramento_falso": {
+        "acertos": 10,
+        "total": 10,
+        "pct": 100.0
+      },
+      "reserva_confirmada": {
+        "acertos": 10,
+        "total": 10,
+        "pct": 100.0
+      },
+      "taxa_entrega": {
+        "acertos": 4,
+        "total": 5,
+        "pct": 80.0
+      },
+      "trabalho_e_escola": {
+        "acertos": 5,
+        "total": 5,
+        "pct": 100.0
+      },
+      "vaga_falsa": {
+        "acertos": 4,
+        "total": 5,
+        "pct": 80.0
+      }
+    },
+    "golpe": {
+      "precisao": 91.7,
+      "recall": 91.7,
+      "f1": 91.7
+    },
+    "confusao": {
+      "seguro -> seguro": 60,
+      "golpe -> golpe": 55,
+      "golpe -> seguro": 5,
+      "seguro -> golpe": 5
+    },
+    "invalidas": 0
+  },
+  "itens": [
+    {
+      "mensagem": "Lembrete: sua consulta com a dentista está marcada para amanhã às 14h. Responda SIM para confirmar.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "lembrete_consulta",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Restaurante Sabor da Serra: sua reserva de sábado às 12h30 está confirmada. Tolerância de 15 minutos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "reserva_confirmada",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Você é o ganhador de um vale-compras de R$ 1.000 da promoção TecnoShop! Resgate em até 1 hora pagando apenas o frete em http://aurora-seguro.top/login.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "premio_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Bruno, não esquece de ligar para a vó no sábado.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "conversa_pessoal",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Seu benefício será suspenso. Faça o recadastramento em http://aurora-seguro.top/login informando CPF e senha em até hoje.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "recadastramento_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Aqui é da equipe de segurança da Loja Mundial. Para cancelar a compra indevida, preciso que me diga o código que chegou no seu celular.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "pedido_de_codigo",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Oportunidade única! Renda extra de R$ 1.000 diários trabalhando pelo celular. Vagas limitadas, cadastre-se em http://atendimento-cliente.xyz.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "vaga_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Notificação de trânsito: infração registrada em seu CPF. Consulte e pague em http://aurora-seguro.top/login em até 48 horas.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "multa_de_transito_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Banco Litoral: sua conta foi bloqueada por movimentação irregular. Regularize agora em http://validar-acesso.click/app para evitar o cancelamento.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "falso_banco",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Bom dia, equipe. A reunião sobre o relatório mensal foi marcada para o dia 12 às 9h.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "trabalho_e_escola",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Oi Carla, tudo bem? Vamos tomar um café no domingo?",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "conversa_pessoal",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Rota Entregas informa: o pedido #15564 está a caminho. Acompanhe pelo aplicativo oficial.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "entrega_legitima",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Notificação de trânsito: infração registrada em seu CPF. Consulte e pague em bit.ly/regularizar-agora em até 24 horas.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "multa_de_transito_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Diego, te mandei o Pix de R$ 62,50 do presente. Confere aí quando puder.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "pix_entre_conhecidos",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Departamento de Trânsito: consta multa de R$ 293,47 em seu veículo. Pague com desconto até hoje em bit.ly/regularizar-agora para evitar a suspensão da CNH.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "multa_de_transito_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Envia Já informa: o pedido #48213 está a caminho. Acompanhe pelo aplicativo oficial.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "entrega_legitima",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Condomínio informa: manutenção dos elevadores na terça-feira, das 9h às 17h. Contamos com a compreensão de todos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "aviso_de_condominio",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Oi Ana, tudo bem? Vamos almoçar amanhã?",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "conversa_pessoal",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Você foi selecionado para trabalho de meio período com renda de R$ 1.000 por dia. Envie seus dados bancários para @rh.vagas.online.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "vaga_falsa",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Oi tia, troquei de número, salva esse aqui. Preciso que você faça um Pix de R$ 2.500 pra mim agora, te devolvo amanhã.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "falso_parente",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Condomínio informa: manutenção do portão da garagem no sábado, das 10h às 17h. Contamos com a compreensão de todos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "aviso_de_condominio",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Notificação de trânsito: infração registrada em seu CPF. Consulte e pague em http://aurora-seguro.top/login em até hoje.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "multa_de_transito_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Semana do cliente Casa & Cia! Frete grátis em roupas nas compras acima de R$ 150.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "promocao_legitima",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Consta um débito de R$ 1.240,00 em seu CPF. Quite hoje com 80% de desconto pelo Pix, chave 11 90000-0000. Após 24 horas seu nome será negativado.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "divida_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Você é o ganhador de uma TV de 55 polegadas da promoção Casa & Cia! Resgate em até 24 horas pagando apenas o frete em http://atendimento-cliente.xyz.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "premio_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Seu CPF será bloqueado em 24 horas por dívida de R$ 742,15. Regularize com 80% de desconto em http://validar-acesso.click/app.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "divida_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "NovaPay informa: Pix recebido de R$ 1.045,20. O saldo já está disponível no aplicativo.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "aviso_de_banco_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Você foi selecionado para trabalho de meio período com renda de R$ 800 por dia. Envie seus dados bancários para 11 90000-0000.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "vaga_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Seu benefício será suspenso. Faça o recadastramento em http://validar-acesso.click/app informando CPF e senha em até 24 horas.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "recadastramento_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Central Banco Horizonte: para cancelar a compra indevida, responda esta mensagem com o código que você acabou de receber por SMS.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "pedido_de_codigo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "NetFibra: sua conta de setembro no valor de R$ 64,10 vence amanhã. Pague pelo app oficial ou por débito automático.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "conta_de_servico",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Oi vó, troquei de número, salva esse aqui. Preciso que você faça um Pix de R$ 2.500 pra mim agora, te devolvo ainda hoje.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "falso_parente",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Reserva confirmada no Restaurante Sabor da Serra para 4 pessoas, sexta-feira às 12h30. Até lá!",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "reserva_confirmada",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Vaga home office: ganhe R$ 1.000 por dia apenas curtindo vídeos. Sem experiência. Chame no 11 90000-0000 e pague a taxa de cadastro para começar.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "vaga_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Atenção: cadastro do auxílio pendente. Atualize seus dados e a senha do aplicativo em http://aurora-seguro.top/login para não perder o pagamento.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "recadastramento_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Atenção: cadastro do auxílio pendente. Atualize seus dados e a senha do aplicativo em http://atendimento-cliente.xyz para não perder o pagamento.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "recadastramento_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Restaurante Sabor da Serra: sua reserva de sábado às 21h está confirmada. Tolerância de 15 minutos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "reserva_confirmada",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Departamento de Trânsito: consta multa de R$ 130,16 em seu veículo. Pague com desconto até hoje em http://validar-acesso.click/app para evitar a suspensão da CNH.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "multa_de_transito_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Atenção: cadastro do auxílio pendente. Atualize seus dados e a senha do aplicativo em http://validar-acesso.click/app para não perder o pagamento.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "recadastramento_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Consta um débito de R$ 96,30 em seu CPF. Quite hoje com 70% de desconto pelo Pix, chave 11 90000-0000. Após 24 horas seu nome será negativado.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "divida_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Casa & Cia: 30% de desconto em roupas até domingo. Aproveite nas lojas ou no nosso app.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "promocao_legitima",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Seu código de verificação Banco Litoral é 338047. Não compartilhe este código com ninguém.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "codigo_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Condomínio informa: manutenção dos elevadores no sábado, das 8h às 17h. Contamos com a compreensão de todos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "aviso_de_condominio",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Banco Litoral: sua conta foi bloqueada por atividade suspeita. Regularize agora em http://atendimento-cliente.xyz para evitar o cancelamento.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "falso_banco",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Reserva confirmada no Restaurante Sabor da Serra para 4 pessoas, amanhã às 21h. Até lá!",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "reserva_confirmada",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Você é o ganhador de um celular novo da promoção Casa & Cia! Resgate em até hoje pagando apenas o frete em http://aurora-seguro.top/login.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "premio_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Envia Já: seu pedido #15564 saiu para entrega e deve chegar hoje até as 16h30.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "entrega_legitima",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "TecnoShop: use o código 482913 para confirmar seu acesso. Ele expira em 10 minutos.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "codigo_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Condomínio informa: manutenção da caixa d'água amanhã, das 8h às 17h. Contamos com a compreensão de todos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "aviso_de_condominio",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Bruno, não esquece de buscar a encomenda na portaria hoje à noite.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "conversa_pessoal",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Robô de apostas com 98% de acerto. Deposite R$ 500 hoje e saque R$ 5.000 em uma semana. Garanta sua vaga em bit.ly/regularizar-agora.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "investimento_milagroso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Condomínio informa: manutenção da caixa d'água amanhã, das 8h às 12h. Contamos com a compreensão de todos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "aviso_de_condominio",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Olá, sou do suporte da Banco Horizonte. Enviamos um código de 6 dígitos para o seu celular por engano. Pode me informar o código para cancelar a compra indevida?",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "pedido_de_codigo",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Notificação de trânsito: infração registrada em seu CPF. Consulte e pague em http://atendimento-cliente.xyz em até 24 horas.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "multa_de_transito_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Carla, a sua parte da vaquinha ficou R$ 62,50. Sem pressa, me paga quando a gente se encontrar.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "pix_entre_conhecidos",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Seu benefício será suspenso. Faça o recadastramento em http://validar-acesso.click/app informando CPF e senha em até hoje.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "recadastramento_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Bruno, não esquece de ligar para a vó hoje à noite.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "conversa_pessoal",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Alerta Banco Litoral! Identificamos tentativa de acesso não autorizado. Confirme seus dados em bit.ly/regularizar-agora em até 2 horas ou sua conta será encerrada.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "falso_banco",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Oi vó, troquei de número, salva esse aqui. Preciso que você faça um Pix de R$ 2.500 pra mim agora, te devolvo na sexta.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "falso_parente",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Bom dia, equipe. A reunião sobre o trabalho em grupo foi marcada para quinta-feira às 19h.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "trabalho_e_escola",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Seu benefício será suspenso. Faça o recadastramento em bit.ly/regularizar-agora informando CPF e senha em até 48 horas.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "recadastramento_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Notificação de trânsito: infração registrada em seu CPF. Consulte e pague em http://aurora-seguro.top/login em até 24 horas.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "multa_de_transito_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "TecnoShop: use o código 338047 para confirmar seu acesso. Ele expira em 5 minutos.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "codigo_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "MercadoBom: 20% de desconto em roupas até sexta-feira. Aproveite nas lojas ou no nosso app.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "promocao_legitima",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Notificação de trânsito: infração registrada em seu CPF. Consulte e pague em http://validar-acesso.click/app em até 24 horas.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "multa_de_transito_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Notificação de trânsito: infração registrada em seu CPF. Consulte e pague em http://validar-acesso.click/app em até hoje.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "multa_de_transito_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "170356 é o seu código de segurança Banco Aurora. Nunca pedimos esse código por telefone ou mensagem.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "codigo_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Loja Mundial: 20% de desconto em eletrônicos até o fim do mês. Aproveite nas lojas ou no nosso app.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "promocao_legitima",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Aqui é da equipe de segurança da NovaPay. Para liberar seu cadastro, preciso que me diga o código que chegou no seu celular.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "pedido_de_codigo",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "NovaPay: sua fatura de novembro fechou em R$ 18,75. Consulte os detalhes no app.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "aviso_de_banco_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Reserva confirmada no Restaurante Sabor da Serra para 2 pessoas, amanhã às 21h. Até lá!",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "reserva_confirmada",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Robô de apostas com 15% de acerto. Deposite R$ 500 hoje e saque R$ 5.000 em 3 dias. Garanta sua vaga em http://atendimento-cliente.xyz.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "investimento_milagroso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Bom dia, equipe. A reunião sobre o relatório mensal foi marcada para quinta-feira às 14h.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "trabalho_e_escola",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Transforme R$ 100 em R$ 2.000 em apenas 3 dias! Método garantido, sem risco. Envie o Pix para 11 90000-0000 e receba o lucro no mesmo dia.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "investimento_milagroso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "vó, meu celular quebrou e estou usando esse número. Consegue pagar um boleto de R$ 2.500 pra mim? É urgente, depois te explico.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "falso_parente",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Condomínio informa: manutenção dos elevadores na terça-feira, das 8h às 17h. Contamos com a compreensão de todos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "aviso_de_condominio",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Banco Aurora informa: Pix recebido de R$ 59,90. O saldo já está disponível no aplicativo.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "aviso_de_banco_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Você é o ganhador de R$ 5.000 da promoção Loja Mundial! Resgate em até hoje pagando apenas o frete em http://aurora-seguro.top/login.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "premio_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Lembrete: sua consulta com a dentista está marcada para segunda-feira às 16h30. Responda SIM para confirmar.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "lembrete_consulta",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Lembrete: sua consulta com a dentista está marcada para quinta-feira às 16h30. Responda SIM para confirmar.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "lembrete_consulta",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Reserva confirmada no Restaurante Sabor da Serra para 2 pessoas, sábado às 20h. Até lá!",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "reserva_confirmada",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Energia Sul: sua conta de novembro no valor de R$ 142,37 vence amanhã. Pague pelo app oficial ou por débito automático.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "conta_de_servico",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Águas do Vale informa: pagamento da fatura de setembro confirmado. Obrigado!",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "conta_de_servico",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Robô de apostas com 15% de acerto. Deposite R$ 250 hoje e saque R$ 2.000 em uma semana. Garanta sua vaga em http://atendimento-cliente.xyz.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "investimento_milagroso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Ana, a sua parte da pizza ficou R$ 120. Sem pressa, me paga quando a gente se encontrar.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "pix_entre_conhecidos",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Reserva confirmada no Cantina Bella Massa para 6 pessoas, sexta-feira às 20h. Até lá!",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "reserva_confirmada",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Expresso Sul avisa: tentativa de entrega sem sucesso. Reagende pagando R$ 27,50 em http://validar-acesso.click/app.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "taxa_entrega",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Expresso Sul: seu pacote está retido por falta de pagamento da taxa de R$ 12,90. Pague em bit.ly/regularizar-agora para liberar a entrega.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "taxa_entrega",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Aqui é da equipe de segurança da Banco Horizonte. Para confirmar sua identidade, preciso que me diga o código que chegou no seu celular.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "pedido_de_codigo",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Seu CPF será bloqueado em hoje por dívida de R$ 742,15. Regularize com 80% de desconto em http://aurora-seguro.top/login.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "divida_falsa",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Condomínio informa: manutenção do portão da garagem no sábado, das 10h às 12h. Contamos com a compreensão de todos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "aviso_de_condominio",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Sua encomenda não pôde ser entregue. Pague a taxa alfandegária de R$ 27,50 em bit.ly/regularizar-agora ou o pacote será devolvido.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "taxa_entrega",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Bom dia, equipe. A reunião sobre o projeto final foi marcada para amanhã às 19h.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "trabalho_e_escola",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Alerta Banco Horizonte! Identificamos movimentação irregular. Confirme seus dados em bit.ly/regularizar-agora em até 2 horas ou sua conta será encerrada.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "falso_banco",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Aviso aos moradores: a assembleia será na terça-feira às 19h30, no salão de festas.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "aviso_de_condominio",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Diego, a sua parte do churrasco ficou R$ 40. Sem pressa, me paga quando a gente se encontrar.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "pix_entre_conhecidos",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Você foi selecionado para trabalho de meio período com renda de R$ 300 por dia. Envie seus dados bancários para 21 90000-0000.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "vaga_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Departamento de Trânsito: consta multa de R$ 195,23 em seu veículo. Pague com desconto até hoje em http://atendimento-cliente.xyz para evitar a suspensão da CNH.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "multa_de_transito_falsa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Banco Aurora: compra aprovada de R$ 230,00 em MercadoBom. Se não reconhece, fale conosco pelo aplicativo oficial.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "aviso_de_banco_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Condomínio informa: manutenção do portão da garagem no sábado, das 8h às 17h. Contamos com a compreensão de todos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "aviso_de_condominio",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Olá! Confirmamos seu horário com a Dra. Helena para segunda-feira, às 9h. Em caso de imprevisto, avise com antecedência.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "lembrete_consulta",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "MercadoBom: 30% de desconto em eletrônicos até o fim do mês. Aproveite nas lojas ou no nosso app.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "promocao_legitima",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Cantina Bella Massa: sua reserva de sexta-feira às 21h está confirmada. Tolerância de 15 minutos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "reserva_confirmada",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "vó, meu celular quebrou e estou usando esse número. Consegue pagar um boleto de R$ 600 pra mim? É urgente, depois te explico.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "falso_parente",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Banco Litoral: use o código 338047 para confirmar seu acesso. Ele expira em 5 minutos.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "codigo_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Expresso Sul: seu pedido #48213 saiu para entrega e deve chegar hoje até as 19h.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "entrega_legitima",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Alerta NovaPay! Identificamos atividade suspeita. Confirme seus dados em bit.ly/regularizar-agora em até 30 minutos ou sua conta será encerrada.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "falso_banco",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Banco Horizonte: compra aprovada de R$ 230,00 em Casa & Cia. Se não reconhece, fale conosco pelo aplicativo oficial.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "aviso_de_banco_legitimo",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Envia Já: seu pacote está retido por falta de pagamento da taxa de R$ 34,00. Pague em bit.ly/regularizar-agora para liberar a entrega.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "taxa_entrega",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Bom dia, equipe. A reunião sobre o relatório mensal foi marcada para o dia 12 às 19h.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "trabalho_e_escola",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Águas do Vale: sua conta de novembro no valor de R$ 64,10 vence dia 20. Pague pelo app oficial ou por débito automático.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "conta_de_servico",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Cantina Bella Massa: sua reserva de sábado às 12h30 está confirmada. Tolerância de 15 minutos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "reserva_confirmada",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Reserva confirmada no Cantina Bella Massa para 6 pessoas, sexta-feira às 12h30. Até lá!",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "reserva_confirmada",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Você é o ganhador de R$ 5.000 da promoção Casa & Cia! Resgate em até 1 hora pagando apenas o frete em bit.ly/regularizar-agora.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "premio_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Expresso Sul: seu pedido #90377 saiu para entrega e deve chegar hoje até as 14h.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "entrega_legitima",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Carla, te mandei o Pix de R$ 25 da vaquinha. Confere aí quando puder.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "pix_entre_conhecidos",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Seu CPF será bloqueado em hoje por dívida de R$ 389,90. Regularize com 70% de desconto em http://aurora-seguro.top/login.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "divida_falsa",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Seu benefício será suspenso. Faça o recadastramento em bit.ly/regularizar-agora informando CPF e senha em até 24 horas.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "recadastramento_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Condomínio informa: manutenção da caixa d'água amanhã, das 10h às 12h. Contamos com a compreensão de todos.",
+      "tipo": "inedita",
+      "rotulo": "seguro",
+      "familia": "aviso_de_condominio",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Seu benefício será suspenso. Faça o recadastramento em http://atendimento-cliente.xyz informando CPF e senha em até 24 horas.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "recadastramento_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Envia Já: seu pacote está retido por falta de pagamento da taxa de R$ 12,90. Pague em http://aurora-seguro.top/login para liberar a entrega.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "taxa_entrega",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Energia Sul: sua conta de outubro no valor de R$ 142,37 vence na sexta-feira. Pague pelo app oficial ou por débito automático.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "conta_de_servico",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Robô de apostas com 30% de acerto. Deposite R$ 100 hoje e saque R$ 5.000 em uma semana. Garanta sua vaga em http://aurora-seguro.top/login.",
+      "tipo": "variacao",
+      "rotulo": "golpe",
+      "familia": "investimento_milagroso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Lembrete: sua consulta com a Dra. Helena está marcada para segunda-feira às 16h30. Responda SIM para confirmar.",
+      "tipo": "variacao",
+      "rotulo": "seguro",
+      "familia": "lembrete_consulta",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Seu benefício será suspenso. Faça o recadastramento em http://validar-acesso.click/app informando CPF e senha em até 48 horas.",
+      "tipo": "inedita",
+      "rotulo": "golpe",
+      "familia": "recadastramento_falso",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    }
+  ]
+}

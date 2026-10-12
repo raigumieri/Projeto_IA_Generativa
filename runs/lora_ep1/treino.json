@@ -1,0 +1,152 @@
+{
+  "parametros": {
+    "nome": "lora_ep1",
+    "modelo": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "treino": "dados/treino.jsonl",
+    "epocas": 1,
+    "lr": 0.0002,
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "lote": 16,
+    "validacao": 0.1,
+    "amostras": null,
+    "seed": 42
+  },
+  "ambiente": {
+    "pytorch": "2.11.0+cu128",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "gpu": "NVIDIA GeForce RTX 4070",
+    "vram_total_gb": 12.0
+  },
+  "parametros_treinaveis": 8683520,
+  "parametros_total": 370504640,
+  "segundos": 6.4,
+  "pico_vram_mb": 7293,
+  "curva": [
+    {
+      "passo": 1,
+      "loss": 1.2749
+    },
+    {
+      "passo": 2,
+      "loss": 1.276
+    },
+    {
+      "passo": 3,
+      "loss": 1.076
+    },
+    {
+      "passo": 4,
+      "loss": 0.6538
+    },
+    {
+      "passo": 5,
+      "loss": 0.3572
+    },
+    {
+      "passo": 6,
+      "loss": 0.258
+    },
+    {
+      "passo": 7,
+      "loss": 0.2113
+    },
+    {
+      "passo": 8,
+      "loss": 0.21
+    },
+    {
+      "passo": 9,
+      "loss": 0.2006
+    },
+    {
+      "passo": 10,
+      "loss": 0.213
+    },
+    {
+      "passo": 11,
+      "loss": 0.2101
+    },
+    {
+      "passo": 12,
+      "loss": 0.1882
+    },
+    {
+      "passo": 13,
+      "loss": 0.2168
+    },
+    {
+      "passo": 14,
+      "loss": 0.1877
+    },
+    {
+      "passo": 15,
+      "loss": 0.2081
+    },
+    {
+      "passo": 16,
+      "loss": 0.1904
+    },
+    {
+      "passo": 17,
+      "loss": 0.2022
+    },
+    {
+      "passo": 18,
+      "loss": 0.186
+    },
+    {
+      "passo": 19,
+      "loss": 0.1561
+    },
+    {
+      "passo": 20,
+      "loss": 0.181
+    },
+    {
+      "passo": 21,
+      "loss": 0.1592
+    },
+    {
+      "passo": 22,
+      "loss": 0.1865
+    },
+    {
+      "passo": 23,
+      "loss": 0.1352
+    },
+    {
+      "passo": 24,
+      "loss": 0.1656
+    },
+    {
+      "passo": 25,
+      "loss": 0.1679
+    },
+    {
+      "passo": 26,
+      "loss": 0.167
+    },
+    {
+      "passo": 27,
+      "loss": 0.171
+    },
+    {
+      "passo": 28,
+      "loss": 0.1683
+    },
+    {
+      "passo": 29,
+      "loss": 0.1877
+    }
+  ],
+  "epocas": [
+    {
+      "epoca": 1,
+      "passo": 29,
+      "loss_validacao": 0.1592
+    }
+  ]
+}

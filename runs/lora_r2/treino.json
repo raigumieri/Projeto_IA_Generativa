@@ -1,0 +1,394 @@
+{
+  "parametros": {
+    "nome": "lora_r2",
+    "modelo": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "treino": "dados/treino.jsonl",
+    "epocas": 3,
+    "lr": 0.0002,
+    "r": 2,
+    "alpha": 4,
+    "dropout": 0.05,
+    "lote": 16,
+    "validacao": 0.1,
+    "amostras": null,
+    "seed": 42
+  },
+  "ambiente": {
+    "pytorch": "2.11.0+cu128",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "gpu": "NVIDIA GeForce RTX 4070",
+    "vram_total_gb": 12.0
+  },
+  "parametros_treinaveis": 1085440,
+  "parametros_total": 362906560,
+  "segundos": 19.0,
+  "pico_vram_mb": 7179,
+  "curva": [
+    {
+      "passo": 1,
+      "loss": 1.2749
+    },
+    {
+      "passo": 2,
+      "loss": 1.276
+    },
+    {
+      "passo": 3,
+      "loss": 1.3092
+    },
+    {
+      "passo": 4,
+      "loss": 1.1673
+    },
+    {
+      "passo": 5,
+      "loss": 1.1437
+    },
+    {
+      "passo": 6,
+      "loss": 1.1124
+    },
+    {
+      "passo": 7,
+      "loss": 0.9948
+    },
+    {
+      "passo": 8,
+      "loss": 0.9897
+    },
+    {
+      "passo": 9,
+      "loss": 0.9491
+    },
+    {
+      "passo": 10,
+      "loss": 0.8566
+    },
+    {
+      "passo": 11,
+      "loss": 0.75
+    },
+    {
+      "passo": 12,
+      "loss": 0.5974
+    },
+    {
+      "passo": 13,
+      "loss": 0.4947
+    },
+    {
+      "passo": 14,
+      "loss": 0.3548
+    },
+    {
+      "passo": 15,
+      "loss": 0.2515
+    },
+    {
+      "passo": 16,
+      "loss": 0.3247
+    },
+    {
+      "passo": 17,
+      "loss": 0.3505
+    },
+    {
+      "passo": 18,
+      "loss": 0.2432
+    },
+    {
+      "passo": 19,
+      "loss": 0.2405
+    },
+    {
+      "passo": 20,
+      "loss": 0.188
+    },
+    {
+      "passo": 21,
+      "loss": 0.2078
+    },
+    {
+      "passo": 22,
+      "loss": 0.2077
+    },
+    {
+      "passo": 23,
+      "loss": 0.1789
+    },
+    {
+      "passo": 24,
+      "loss": 0.2028
+    },
+    {
+      "passo": 25,
+      "loss": 0.2116
+    },
+    {
+      "passo": 26,
+      "loss": 0.198
+    },
+    {
+      "passo": 27,
+      "loss": 0.2035
+    },
+    {
+      "passo": 28,
+      "loss": 0.1974
+    },
+    {
+      "passo": 29,
+      "loss": 0.2043
+    },
+    {
+      "passo": 30,
+      "loss": 0.173
+    },
+    {
+      "passo": 31,
+      "loss": 0.1822
+    },
+    {
+      "passo": 32,
+      "loss": 0.2281
+    },
+    {
+      "passo": 33,
+      "loss": 0.225
+    },
+    {
+      "passo": 34,
+      "loss": 0.1761
+    },
+    {
+      "passo": 35,
+      "loss": 0.1765
+    },
+    {
+      "passo": 36,
+      "loss": 0.18
+    },
+    {
+      "passo": 37,
+      "loss": 0.1885
+    },
+    {
+      "passo": 38,
+      "loss": 0.181
+    },
+    {
+      "passo": 39,
+      "loss": 0.1608
+    },
+    {
+      "passo": 40,
+      "loss": 0.1703
+    },
+    {
+      "passo": 41,
+      "loss": 0.159
+    },
+    {
+      "passo": 42,
+      "loss": 0.1449
+    },
+    {
+      "passo": 43,
+      "loss": 0.1579
+    },
+    {
+      "passo": 44,
+      "loss": 0.168
+    },
+    {
+      "passo": 45,
+      "loss": 0.163
+    },
+    {
+      "passo": 46,
+      "loss": 0.1733
+    },
+    {
+      "passo": 47,
+      "loss": 0.1671
+    },
+    {
+      "passo": 48,
+      "loss": 0.1549
+    },
+    {
+      "passo": 49,
+      "loss": 0.1284
+    },
+    {
+      "passo": 50,
+      "loss": 0.1825
+    },
+    {
+      "passo": 51,
+      "loss": 0.1814
+    },
+    {
+      "passo": 52,
+      "loss": 0.1781
+    },
+    {
+      "passo": 53,
+      "loss": 0.1445
+    },
+    {
+      "passo": 54,
+      "loss": 0.1136
+    },
+    {
+      "passo": 55,
+      "loss": 0.1389
+    },
+    {
+      "passo": 56,
+      "loss": 0.1412
+    },
+    {
+      "passo": 57,
+      "loss": 0.1325
+    },
+    {
+      "passo": 58,
+      "loss": 0.102
+    },
+    {
+      "passo": 59,
+      "loss": 0.164
+    },
+    {
+      "passo": 60,
+      "loss": 0.1439
+    },
+    {
+      "passo": 61,
+      "loss": 0.1223
+    },
+    {
+      "passo": 62,
+      "loss": 0.1307
+    },
+    {
+      "passo": 63,
+      "loss": 0.1112
+    },
+    {
+      "passo": 64,
+      "loss": 0.1273
+    },
+    {
+      "passo": 65,
+      "loss": 0.1132
+    },
+    {
+      "passo": 66,
+      "loss": 0.1642
+    },
+    {
+      "passo": 67,
+      "loss": 0.1101
+    },
+    {
+      "passo": 68,
+      "loss": 0.0918
+    },
+    {
+      "passo": 69,
+      "loss": 0.1351
+    },
+    {
+      "passo": 70,
+      "loss": 0.1434
+    },
+    {
+      "passo": 71,
+      "loss": 0.0941
+    },
+    {
+      "passo": 72,
+      "loss": 0.0853
+    },
+    {
+      "passo": 73,
+      "loss": 0.1318
+    },
+    {
+      "passo": 74,
+      "loss": 0.1128
+    },
+    {
+      "passo": 75,
+      "loss": 0.0926
+    },
+    {
+      "passo": 76,
+      "loss": 0.1009
+    },
+    {
+      "passo": 77,
+      "loss": 0.1413
+    },
+    {
+      "passo": 78,
+      "loss": 0.1225
+    },
+    {
+      "passo": 79,
+      "loss": 0.0782
+    },
+    {
+      "passo": 80,
+      "loss": 0.1286
+    },
+    {
+      "passo": 81,
+      "loss": 0.1224
+    },
+    {
+      "passo": 82,
+      "loss": 0.1141
+    },
+    {
+      "passo": 83,
+      "loss": 0.0868
+    },
+    {
+      "passo": 84,
+      "loss": 0.1625
+    },
+    {
+      "passo": 85,
+      "loss": 0.1348
+    },
+    {
+      "passo": 86,
+      "loss": 0.0876
+    },
+    {
+      "passo": 87,
+      "loss": 0.1285
+    }
+  ],
+  "epocas": [
+    {
+      "epoca": 1,
+      "passo": 29,
+      "loss_validacao": 0.1692
+    },
+    {
+      "epoca": 2,
+      "passo": 58,
+      "loss_validacao": 0.1304
+    },
+    {
+      "epoca": 3,
+      "passo": 87,
+      "loss_validacao": 0.1012
+    }
+  ]
+}

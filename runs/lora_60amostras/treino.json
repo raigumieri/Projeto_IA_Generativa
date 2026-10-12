@@ -1,0 +1,94 @@
+{
+  "parametros": {
+    "nome": "lora_60amostras",
+    "modelo": "HuggingFaceTB/SmolLM2-360M-Instruct",
+    "treino": "dados/treino.jsonl",
+    "epocas": 3,
+    "lr": 0.0002,
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "lote": 16,
+    "validacao": 0.1,
+    "amostras": 60,
+    "seed": 42
+  },
+  "ambiente": {
+    "pytorch": "2.11.0+cu128",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "gpu": "NVIDIA GeForce RTX 4070",
+    "vram_total_gb": 12.0
+  },
+  "parametros_treinaveis": 8683520,
+  "parametros_total": 370504640,
+  "segundos": 3.1,
+  "pico_vram_mb": 7213,
+  "curva": [
+    {
+      "passo": 1,
+      "loss": 1.1451
+    },
+    {
+      "passo": 2,
+      "loss": 0.943
+    },
+    {
+      "passo": 3,
+      "loss": 0.5919
+    },
+    {
+      "passo": 4,
+      "loss": 0.3058
+    },
+    {
+      "passo": 5,
+      "loss": 0.2419
+    },
+    {
+      "passo": 6,
+      "loss": 0.2042
+    },
+    {
+      "passo": 7,
+      "loss": 0.1881
+    },
+    {
+      "passo": 8,
+      "loss": 0.2114
+    },
+    {
+      "passo": 9,
+      "loss": 0.1847
+    },
+    {
+      "passo": 10,
+      "loss": 0.1815
+    },
+    {
+      "passo": 11,
+      "loss": 0.1676
+    },
+    {
+      "passo": 12,
+      "loss": 0.2392
+    }
+  ],
+  "epocas": [
+    {
+      "epoca": 1,
+      "passo": 4,
+      "loss_validacao": 0.2278
+    },
+    {
+      "epoca": 2,
+      "passo": 8,
+      "loss_validacao": 0.1898
+    },
+    {
+      "epoca": 3,
+      "passo": 12,
+      "loss_validacao": 0.1704
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "nome": "lora_lr5e-5__desafio",
+  "modelo": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "adaptador": "runs/lora_lr5e-5/adaptador",
+  "temperature": 0.0,
+  "ambiente": {
+    "pytorch": "2.11.0+cu128",
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "gpu": "NVIDIA GeForce RTX 4070",
+    "vram_total_gb": 12.0
+  },
+  "segundos": 1.0,
+  "pico_vram_mb": 864,
+  "resumo": {
+    "geral": {
+      "acertos": 26,
+      "total": 40,
+      "pct": 65.0
+    },
+    "por_tipo": {
+      "desafio": {
+        "acertos": 26,
+        "total": 40,
+        "pct": 65.0
+      }
+    },
+    "por_familia": {
+      "golpe_conversa": {
+        "acertos": 7,
+        "total": 8,
+        "pct": 87.5
+      },
+      "golpe_link": {
+        "acertos": 3,
+        "total": 6,
+        "pct": 50.0
+      },
+      "golpe_oferta": {
+        "acertos": 6,
+        "total": 6,
+        "pct": 100.0
+      },
+      "seguro_alerta_legitimo": {
+        "acertos": 3,
+        "total": 6,
+        "pct": 50.0
+      },
+      "seguro_conversa": {
+        "acertos": 4,
+        "total": 8,
+        "pct": 50.0
+      },
+      "seguro_servico": {
+        "acertos": 3,
+        "total": 6,
+        "pct": 50.0
+      }
+    },
+    "golpe": {
+      "precisao": 61.5,
+      "recall": 80.0,
+      "f1": 69.6
+    },
+    "confusao": {
+      "golpe -> golpe": 16,
+      "golpe -> seguro": 4,
+      "seguro -> golpe": 10,
+      "seguro -> seguro": 10
+    },
+    "invalidas": 0
+  },
+  "itens": [
+    {
+      "mensagem": "Detectamos um login no seu app às 03:12 em outro aparelho. Não foi você? Cancele agora: http://seguranca-conta.top/cancelar",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_link",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Seus pontos do cartão vencem HOJE. Troque 38.450 pontos por dinheiro antes da meia-noite: bit.ly/resgate-pontos",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_link",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Olá, cliente. Sua assinatura de streaming não foi renovada. Atualize o cartão em http://assinatura-renovar.xyz para não perder o acesso.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_link",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Comunicado: seu CPF foi usado em um cadastro suspeito. Consulte gratuitamente e bloqueie em http://cpf-protegido.click",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_link",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Você tem um valor a receber de R$ 1.873,22 esquecido em bancos. Saque liberado só hoje pelo link bit.ly/valor-esquecido",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_link",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Sua conta do app de mensagens será desativada em 12h por denúncias. Verifique sua identidade: http://verificar-conta.top",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_link",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "oi mãe meu cel caiu na privada kkk to com esse numero provisorio. consegue me mandar 700 no pix hj? amanha eu explico tudo",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_conversa",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Bom dia! Aqui é o Rafael, da central de fraudes do seu banco. Identificamos uma compra de R$ 3.200. Para bloquear preciso que confirme a senha do cartão.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Oi, tudo bem? Vi seu anúncio do sofá. Já fiz o pagamento, mas o site pediu que você pague a taxa de liberação de R$ 80 pra receber. Te mando o link.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Amor, não consigo falar agora. Preciso que você pague esse boleto pra mim urgente, vence em 1 hora. Depois te explico, confia.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Olá, falo do RH da empresa. Seu currículo foi aprovado! Para garantir a vaga, é necessário pagar o exame admissional de R$ 95 via Pix ainda hoje.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Sou advogado e tenho uma herança de R$ 2,4 milhões em seu nome. Para iniciar a liberação, envie cópia do RG e os dados da sua conta.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Oi, mandei um código de 6 números pro seu celular sem querer, era pra minha conta. Me passa ele por favor? É rapidinho.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Moça, aqui é da operadora. Seu chip vai ser cancelado hoje. Para manter o número, me informe o código que acabou de chegar por SMS.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "iPhone novo por R$ 899, só hoje, estoque de leilão da Receita. Pagamento apenas por Pix antecipado. Chama no privado.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_oferta",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Empréstimo aprovado de R$ 15.000 mesmo negativado, sem consulta. Para liberar, deposite o seguro de R$ 250 na conta do gerente.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_oferta",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Ganhe R$ 200 agora só por avaliar restaurantes no celular. Tarefa leva 5 minutos. Faça um depósito de ativação de R$ 30 e comece.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_oferta",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Consegui dobrar meu dinheiro em 2 dias com esse grupo, é real. Entra com R$ 150 e sai com R$ 300, o admin garante. Te passo o Pix dele.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_oferta",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Sua CNH pode sair sem prova e sem aula por R$ 600. Processo sigiloso, documento original. Pagamento adiantado.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_oferta",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Promoção relâmpago: passagens aéreas por R$ 49 para qualquer destino. Garanta informando os dados do cartão e o código de segurança neste chat.",
+      "rotulo": "golpe",
+      "tipo": "desafio",
+      "familia": "golpe_oferta",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Você fez login em um novo aparelho. Se não foi você, abra o aplicativo e troque sua senha. Não enviamos links por SMS.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_alerta_legitimo",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Compra de R$ 3.200,00 recusada por segurança. Para liberar, acesse o app do banco. Nunca pedimos senha por mensagem.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_alerta_legitimo",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Seu boleto do condomínio de outubro já está disponível no aplicativo da administradora. Vencimento dia 10.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_alerta_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Aviso: sua fatura vence amanhã. Se já pagou, desconsidere esta mensagem.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_alerta_legitimo",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Seu código para redefinir a senha é 771204. Se você não pediu, ignore esta mensagem e não informe o código a ninguém.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_alerta_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Débito automático da conta de luz realizado com sucesso. Valor: R$ 187,40.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_alerta_legitimo",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "mãe, cheguei bem. o celular tava sem bateria, por isso não respondi. te ligo mais tarde",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_conversa",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Oi! Te mandei 700 no Pix referente ao aluguel deste mês, tá? Confere e me avisa.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Amor, paguei o boleto da internet agora de manhã. O comprovante tá no grupo da casa.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_conversa",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Urgente: alguém viu minha chave? Preciso sair em 10 minutos e não acho em lugar nenhum.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_conversa",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Oi, vi seu anúncio do sofá. Ainda está disponível? Posso passar aí no sábado para ver pessoalmente?",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Parabéns pela aprovação!! Você merece demais. Vamos comemorar no fim de semana?",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Galera, a vaquinha do presente da Carla fechou em R$ 30 por pessoa. Quem puder me passa até sexta.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_conversa",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Bom dia, professor. Não vou conseguir ir à aula hoje, estou sem transporte. Posso entregar o trabalho amanhã?",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_conversa",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Seu pedido saiu para entrega. O entregador vai pedir os 4 últimos dígitos do código que aparece no app para confirmar o recebimento.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_servico",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Olá! Seu currículo foi selecionado para a próxima etapa. A entrevista será online, na quinta às 15h. Não há nenhum custo no processo.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_servico",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Sua consulta foi remarcada para terça, 8h30, a pedido do médico. Se não puder, ligue para a recepção.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_servico",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Promoção de aniversário da loja: 15% de desconto em todo o site até domingo. Cupom: FESTA15.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_servico",
+      "previsto": "golpe",
+      "resposta": "golpe"
+    },
+    {
+      "mensagem": "Seu carro está pronto. O valor do serviço ficou R$ 480, como combinado. Pode retirar até as 18h.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_servico",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    },
+    {
+      "mensagem": "Lembrete da biblioteca: o livro que você pegou emprestado deve ser devolvido até sexta-feira.",
+      "rotulo": "seguro",
+      "tipo": "desafio",
+      "familia": "seguro_servico",
+      "previsto": "seguro",
+      "resposta": "seguro"
+    }
+  ]
+}
